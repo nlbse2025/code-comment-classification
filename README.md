@@ -110,10 +110,10 @@ We extracted the class comments from selected projects into a joint [dataset](ht
 
 _**[To be updated]**_
 
-We trained and tested 19 binary classifiers (one for each category) using the Sentence Transformer architecture on the provided training and test sets.
+We trained and tested 3 multi-class classifiers (one for each language) using the Sentence Transformer architecture on the provided training and test sets.
 
 The baseline classifiers are coined as STACC and proposed by [Al-Kaswan et al.](https://arxiv.org/abs/2302.13681)
 
 The summary of the baseline results is in `baseline_results_summary.xlsx`.
 
-We provide a notebook to [train our baseline classifiers](STACC_baseline.ipynb) and to [run the evaluations](https://colab.research.google.com/drive/1lvXuzdl_vSwMTCGIEfqTyQC1nzl22WCy?usp=sharing).
+We provide a notebook to [train our baseline classifiers](STACC_baseline.ipynb) and to [run the evaluations](https://colab.research.google.com/drive/1yYenzaUPcHZt0PAUpLyp64Tc41gPmwbo?usp=sharing).
