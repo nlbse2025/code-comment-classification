@@ -53,16 +53,10 @@ Since you will be using our dataset (and possibly one of our notebooks) as well 
   organization={IEEE}
 }
 ```
-## Folder Structure
-
-The structure is identical for all programming languages:
-
-- `input`: The CSV files of the sentences for each category (within a training and testing split). **These are the main files used for classification**. See the format of these files below. 
-- `project_classes`: CSV files with the list of classes for each software project and corresponding code comments.
 
 ## Data for Classification
 
-We provide a CSV file for each programming language (in the `input` folder) where each row represents a sentence (aka an instance), and each sentence contains six columns as follows:
+We provide a [HF dataset](https://huggingface.co/datasets/NLBSE/nlbse25-code-comment-classification).  where each row represents a sentence (aka an instance), and each sentence contains six columns as follows:
 - `comment_sentence_id` is the unique sentence ID;
 - `class` is the class name referring to the source code file where the sentence comes from;
 - `comment_sentence` is the actual sentence string, which is part of a (multi-line) class comment;
