@@ -43,7 +43,16 @@ Since you will be using our dataset (and possibly one of our notebooks) as well 
   organization={IEEE}
 }
 ```
-
+```
+@inproceedings{alkaswan2023stacc,
+  title={Stacc: Code comment classification using sentencetransformers},
+  author={Al-Kaswan, Ali and Izadi, Maliheh and Van Deursen, Arie},
+  booktitle={2023 IEEE/ACM 2nd International Workshop on Natural Language-Based Software Engineering (NLBSE)},
+  pages={28--31},
+  year={2023},
+  organization={IEEE}
+}
+```
 ## Folder Structure
 
 The structure is identical for all programming languages:
@@ -108,12 +117,32 @@ We extracted the class comments from selected projects into a joint [dataset](ht
 
 ## Baseline Results
 
-_**[To be updated]**_
+|    | lan    | cat                     |   precision |   recall |       f1 |
+|---:|:-------|:------------------------|------------:|---------:|---------:|
+|  0 | java   | summary                 |    0.873385 | 0.829448 | 0.85085  |
+|  1 | java   | Ownership               |    1        | 1        | 1        |
+|  2 | java   | Expand                  |    0.323529 | 0.444444 | 0.374468 |
+|  3 | java   | usage                   |    0.911043 | 0.818182 | 0.862119 |
+|  4 | java   | Pointer                 |    0.738255 | 0.940171 | 0.827068 |
+|  5 | java   | deprecation             |    0.818182 | 0.6      | 0.692308 |
+|  6 | java   | rational                |    0.162162 | 0.295082 | 0.209302 |
+|  7 | python | Usage                   |    0.700787 | 0.735537 | 0.717742 |
+|  8 | python | Parameters              |    0.793893 | 0.8125   | 0.803089 |
+|  9 | python | DevelopmentNotes        |    0.243902 | 0.487805 | 0.325203 |
+| 10 | python | Expand                  |    0.433628 | 0.765625 | 0.553672 |
+| 11 | python | Summary                 |    0.648649 | 0.585366 | 0.615385 |
+| 12 | pharo  | Keyimplementationpoints |    0.636364 | 0.651163 | 0.643678 |
+| 13 | pharo  | Example                 |    0.872881 | 0.903509 | 0.887931 |
+| 14 | pharo  | Responsibilities        |    0.596154 | 0.596154 | 0.596154 |
+| 15 | pharo  | Classreferences         |    0.2      | 0.5      | 0.285714 |
+| 16 | pharo  | Intent                  |    0.71875  | 0.766667 | 0.741935 |
+| 17 | pharo  | Keymessages             |    0.68     | 0.790698 | 0.731183 |
+| 18 | pharo  | Collaborators           |    0.26087  | 0.6      | 0.363636 |
 
 We trained and tested 3 multi-class classifiers (one for each language) using the Sentence Transformer architecture on the provided training and test sets.
 
 The baseline classifiers are coined as STACC and proposed by [Al-Kaswan et al.](https://arxiv.org/abs/2302.13681)
 
-The summary of the baseline results is in `baseline_results_summary.xlsx`.
+The summary of the baseline results is in `baseline_results_summary.csv`.
 
-We provide a notebook to [train our baseline classifiers](STACC_baseline.ipynb) and to [run the evaluations](https://colab.research.google.com/drive/1yYenzaUPcHZt0PAUpLyp64Tc41gPmwbo?usp=sharing).
+We provide a notebook to train our baseline classifiers and to run the evaluations [locally](SetFit_baseline.ipynb) and on [Google Colab](https://colab.research.google.com/drive/1RULzasjO_nrqiXLrGze-PznFlHKtGQ4s?usp=sharing) (note that the final evaluation and score calcuation needs to be perfomed on Google Colab).
