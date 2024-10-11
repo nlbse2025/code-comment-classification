@@ -7,7 +7,6 @@ The competition participants must use the provided data to train/test their clas
 Details on how to participate in the competition are [here](https://colab.research.google.com/drive/1GhpyzTYcRs8SGzOMH3Xb6rLfdFVUBN0P?usp=sharing).
 
 - [Citing Related Work](#citing-related-work)
-- [Folder structure](#folder-structure)
 - [Data for classification](#data-for-classification)
 - [Dataset Preparation](#dataset-preparation)
 - [Software Projects](#software-projects)
@@ -56,13 +55,17 @@ Since you will be using our dataset (and possibly one of our notebooks) as well 
 
 ## Data for Classification
 
-We provide a [HF dataset](https://huggingface.co/datasets/NLBSE/nlbse25-code-comment-classification).  where each row represents a sentence (aka an instance), and each sentence contains six columns as follows:
-- `comment_sentence_id` is the unique sentence ID;
+We provide a [HF Dataset](https://huggingface.co/datasets/NLBSE/nlbse25-code-comment-classification) with the competition data. The Dataset has six splits two (train and test) per language. Each row represents a sentence (aka an instance), and each sentence contains five columns as follows:
 - `class` is the class name referring to the source code file where the sentence comes from;
 - `comment_sentence` is the actual sentence string, which is part of a (multi-line) class comment;
 - `partition` is the dataset split in training and testing; `0` identifies training instances, and `1` identifies testing instances, respectively;
-- `instance_type` specifies if an instance actually belongs to the given category or not: `0` for negative and `1` for positive instances;
-- `category` is the ground-truth or oracle category.
+- `combo` is the class name appended to the sentence string, used to train the baselines; 
+- `labels` is the ground-truth category, it is a binary list that a single sample belongs to. Each sample belongs one or more categories. 
+
+The list of labels is defined for each of as follows:
+- `java`: [`summary`, `Ownership`, `Expand`, `usage`, `Pointer`, `deprecation`, `rational`],
+- `python`: [`Usage`, `Parameters`, `DevelopmentNotes`, `Expand`, `Summary`],
+- `pharo`: [`Keyimplementationpoints`, `Example`, `Responsibilities`, `Classreferences`, `Intent`, `Keymessages`, `Collaborators`]
 
 
 ## Dataset Preparation
@@ -111,7 +114,7 @@ We extracted the class comments from selected projects into a joint [dataset](ht
 
 ## Baseline Results
 
-|    | lan    | cat                     |   precision |   recall |       f1 |
+|    | Language    | Category                     |   precision |   recall |       f1 |
 |---:|:-------|:------------------------|------------:|---------:|---------:|
 |  0 | java   | summary                 |    0.873385 | 0.829448 | 0.85085  |
 |  1 | java   | Ownership               |    1        | 1        | 1        |
@@ -133,9 +136,9 @@ We extracted the class comments from selected projects into a joint [dataset](ht
 | 17 | pharo  | Keymessages             |    0.68     | 0.790698 | 0.731183 |
 | 18 | pharo  | Collaborators           |    0.26087  | 0.6      | 0.363636 |
 
-We trained and tested 3 multi-class classifiers (one for each language) using the Sentence Transformer architecture on the provided training and test sets.
+We trained and tested 3 multi-class classifiers (one for each language) based on [Al-Kaswan et al.](https://arxiv.org/abs/2302.13681) on the provided training and test sets. The models are avaliable on the [HuggingFace Hub](https://huggingface.co/collections/NLBSE/nlbse25-code-comment-classification-competition-670914985f4ed2ff1f0ddb03).
 
-The baseline classifiers are coined as STACC and proposed by [Al-Kaswan et al.](https://arxiv.org/abs/2302.13681)
+The baseline classifiers are coined as STACC and proposed by 
 
 The summary of the baseline results is in `baseline_results_summary.csv`.
 
