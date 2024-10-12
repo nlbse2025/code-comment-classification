@@ -4,7 +4,7 @@ This repository contains the data and results of the baseline classifiers for th
 
 The competition participants must use the provided data to train/test their classifiers, which should outperform the baselines.
 
-Details on how to participate in the competition are [here](https://colab.research.google.com/drive/1GhpyzTYcRs8SGzOMH3Xb6rLfdFVUBN0P?usp=sharing).
+Details on how to participate in the competition are available in our [Google Colab notebook](https://colab.research.google.com/drive/1GhpyzTYcRs8SGzOMH3Xb6rLfdFVUBN0P?usp=sharing).
 
 - [Citing Related Work](#citing-related-work)
 - [Data for classification](#data-for-classification)
@@ -13,8 +13,10 @@ Details on how to participate in the competition are [here](https://colab.resear
 - [Baseline Results](#baseline-results)
 
 ## Citing Related Work
+
 Since you will be using our dataset (and possibly one of our notebooks) as well as the original work behind the dataset, please cite the following references in your paper:
-```
+
+```bibtex
 @inproceedings{nlbse2025,
   author={Colavito, Giuseppe and Al-Kaswan, Ali and Stulova, Nataliia and Rani, Pooja},
   title={The NLBSE'25 Tool Competition},
@@ -22,7 +24,8 @@ Since you will be using our dataset (and possibly one of our notebooks) as well 
   year={2025}
 }
 ```
-```
+
+```bibtex
 @article{rani2021,
   title={How to identify class comment types? A multi-language approach for class comment classification},
   author={Rani, Pooja and Panichella, Sebastiano and Leuenberger, Manuel and Di Sorbo, Andrea and Nierstrasz, Oscar},
@@ -33,7 +36,8 @@ Since you will be using our dataset (and possibly one of our notebooks) as well 
   publisher={Elsevier}
 }
 ```
-```
+
+```bibtex
 @inproceedings{pascarella2017,
   title={Classifying code comments in Java open-source software systems},
   author={Pascarella, Luca and Bacchelli, Alberto},
@@ -42,7 +46,8 @@ Since you will be using our dataset (and possibly one of our notebooks) as well 
   organization={IEEE}
 }
 ```
-```
+
+```bibtex
 @inproceedings{alkaswan2023stacc,
   title={Stacc: Code comment classification using sentencetransformers},
   author={Al-Kaswan, Ali and Izadi, Maliheh and Van Deursen, Arie},
@@ -136,10 +141,8 @@ We extracted the class comments from selected projects into a joint [dataset](ht
 | 17 | pharo  | Keymessages             |    0.68     | 0.790698 | 0.731183 |
 | 18 | pharo  | Collaborators           |    0.26087  | 0.6      | 0.363636 |
 
-We trained and tested 3 multi-class classifiers (one for each language) based on [Al-Kaswan et al.](https://arxiv.org/abs/2302.13681) on the provided training and test sets. The models are avaliable on the [HuggingFace Hub](https://huggingface.co/collections/NLBSE/nlbse25-code-comment-classification-competition-670914985f4ed2ff1f0ddb03).
+We trained and tested 3 multi-class classifiers (one for each language) based on [Al-Kaswan et al.](https://arxiv.org/abs/2302.13681) on the provided training and test sets. The models are available on the [HuggingFace Hub](https://huggingface.co/collections/NLBSE/nlbse25-code-comment-classification-competition-670914985f4ed2ff1f0ddb03).
 
-The baseline classifiers are coined as STACC and proposed by 
+The summary of the baseline results is provided in `baseline_results_summary.csv`.
 
-The summary of the baseline results is in `baseline_results_summary.csv`.
-
-We provide a notebook to train our baseline classifiers and to run the evaluations [locally](SetFit_baseline.ipynb) and on [Google Colab](https://colab.research.google.com/drive/1RULzasjO_nrqiXLrGze-PznFlHKtGQ4s?usp=sharing) (note that the final evaluation and score calcuation needs to be perfomed on Google Colab).
+We provide a notebook to train our baseline classifiers and to run the evaluations [locally](SetFit_baseline.ipynb) and on [Google Colab](https://colab.research.google.com/drive/1RULzasjO_nrqiXLrGze-PznFlHKtGQ4s?usp=sharing) (note that the final evaluation and score calculation needs to be performed on Google Colab).
