@@ -18,9 +18,9 @@ Since you will be using our dataset (and possibly one of our notebooks) as well 
 
 ```bibtex
 @inproceedings{nlbse2025,
-  author={Colavito, Giuseppe and Al-Kaswan, Ali and Stulova, Nataliia and Rani, Pooja},
+  author={Al-Kaswan, Ali and Colavito, Giuseppe and Stulova, Nataliia and Rani, Pooja},
   title={The NLBSE'25 Tool Competition},
-  booktitle={Proceedings of The 4th International Workshop on Natural Language-based Software Engineering (NLBSE'25)},
+  booktitle={Proceedings of The 3rd International Workshop on Natural Language-based Software Engineering (NLBSE'25)},
   year={2025}
 }
 ```
